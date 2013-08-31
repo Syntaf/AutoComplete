@@ -1,0 +1,12 @@
+program structure draft
+
+-- list and input given through command line
+-- make sure user cannot crash program with input
+-- dispatch thread to transfer data in List into string arrays
+-- grab first input word and find all lisi words containing first letters
+-- make sure to grab in alphebetical order
+-- display in console!
+
+
+
+TO BE OPTIMIZED THROUGH TIME

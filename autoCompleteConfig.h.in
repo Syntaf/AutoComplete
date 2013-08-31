@@ -1,0 +1,2 @@
+#define MAJOR @MAJOR@
+#define MINOR @MINOR@
