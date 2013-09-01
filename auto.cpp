@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	*/
 
 	dictionary.push_back("dictionary vector");
-	for(auto i = dictionary.begin(); i != dictionary.end(); ++i) {
+	for(std::vector<std::string>::iterator i = dictionary.begin(); i != dictionary.end(); ++i) {
 		std::cout << *i << std::endl;
 	}
 	
