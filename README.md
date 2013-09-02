@@ -8,6 +8,8 @@ competition is going to be based on time to complete, so optimization is importa
 This means that if your program executes our input set faster than anyone else you 
 win. Just to forewarn you though, our input set is going to be exceedingly large.
 
+NOTE TO READER: this readme file is in progress, because of this there is some deprecated instructions
+		. ignore all lines starting with '**' currently!
 
 COMPILING
 
@@ -15,8 +17,8 @@ This program uses a cmake build system currently in development, so some special
 instructions are needed in order to build.
 
 	LINUX SYSTEMS
-		[]Make sure you first off have a designated compiler that supports C++11
-		[]Know your c++11 flags needed
+		**DEPRECATED []Make sure you first off have a designated compiler that supports C++11
+		**DEPRECATED []Know your c++11 flags needed
 				clang requires '-std=c++11'
 				gnu requires   '-std=c++0x'
 		(RECOMMENDED) create a seperate directory in the repository for the building
@@ -33,7 +35,7 @@ instructions are needed in order to build.
 		your program should be compiled and located in your 'bin' directory in the main
 		repo. This is where it should end
 	
-	NOTE CURRENTLY*****
+	** DEPRECATED NOTE CURRENTLY*****
 		You're going to need to add a few extra things in your cmake, at the moment i'm
 		trying to write a cmake build system that supports c++11, but it's still in the
 		making. you will need to add these two things before the file location:
