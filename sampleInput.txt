@@ -1,7 +1,0 @@
-pa
-be
-int
-nor
-tes
-terr
-on
