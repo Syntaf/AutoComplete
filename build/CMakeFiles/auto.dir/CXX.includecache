@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gmercer/AutoComplete/auto.cpp
+iostream
+-
+limits
+-
+cstdlib
+-
+string
+-
+vector
+-
+fstream
+-
+autoCompleteConfig.h
+/home/gmercer/AutoComplete/autoCompleteConfig.h
+
+autoCompleteConfig.h
+

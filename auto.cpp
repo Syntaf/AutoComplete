@@ -12,7 +12,7 @@
 bool openGood(std::ifstream&);
 void readDictionary(std::ifstream&, std::vector<std::string>&);
 
-typedef std::vector<std::string>::iterator vecIter
+typedef std::vector<std::string>::iterator vecIter;
 
 int main(int argc, char* argv[])
 {
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 	} else if(argc == 2) {
 		std::cout << "Error, must provide inputFile" << std::endl;
 		return 1;
-	
+	}	
 	//open dictionary text file
 	if(!openGood(wordFile)) {
 		std::cout << "Error, dictionary file could not be opened\n";
@@ -41,9 +41,6 @@ int main(int argc, char* argv[])
 	}	
 	//grab dictionary words and store them in vector		
 	readDictionary(wordFile, dictionary);
-
-	
-
 	
 	
 	return 0;
@@ -52,13 +49,19 @@ int main(int argc, char* argv[])
 // test if file passed to function is valid and can be read
 bool openGood(std::ifstream& file)
 {
-	//...
+	//if file can be opened
+		//return true
+	//cant be opened?
+		//return false
 }
 
 // read data from file into vector, I feel a vector is much more
 // optimized for standard data types than say, a linked list. open
 // for debate though, a hash table might also be a viable data structure
-void readDictionary(char*, std::vector<std::string> &vec)
+void readDictionary(std::ifstream& inFile, std::vector<std::string> &vec)
 {
-	//...
+	//start a while loop, while the inFile is not at EOF
+		//push data onto vector (vec.push_back(..))
+	//end while loop
+	//make sure to cout any error that occur
 }
