@@ -3,12 +3,15 @@ project(autoComplete)
 
 #set version number
 set (MAJOR 0)
-set (MINOR 0)
+set (MINOR 1)
 #configure header file to be placed in binary
 configure_file(
 	"${PROJECT_SOURCE_DIR}/autoCompleteConfig.h.in"
 	"${PROJECT_BINARY_DIR}/autoCompleteConfig.h"
 )
+
+option (USE_INPUT
+	"use input files provided in argv" OFF)
 
 # add binary tree to search path for include files
 # so we can find config

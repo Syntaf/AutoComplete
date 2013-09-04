@@ -1,2 +1,4 @@
 #define MAJOR @MAJOR@
 #define MINOR @MINOR@
+
+#cmakedefine USE_INPUT
