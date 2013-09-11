@@ -13,6 +13,8 @@
 bool openGood(std::ifstream&, char* argv);
 void readDictionary(std::ifstream&, std::vector<std::string>&, char* argv);
 void readInput(std::ifstream&, std::vector<std::string>&, char* argv);
+bool search(std::vector<std::string>&, std::vector<std::string>&,
+	    std::queue<std::string>&);
 
 typedef std::vector<std::string>::iterator vecIter;
 
@@ -49,29 +51,26 @@ int main(int argc, char* argv[])
 #else
 	//--------------------------------------------------------------------
 	input.push_back("par");
-	dictionary.push_back("testing");
+	dictionary.push_back("apple");
+	dictionary.push_back("and");
+	dictionary.push_back("batman");
 	dictionary.push_back("gone");
-	dictionary.push_back("parachute");
 	dictionary.push_back("imaginary");
+	dictionary.push_back("parachute");
 	dictionary.push_back("paraglide");
+	dictionary.push_back("testing");
+	dictionary.push_back("zoo");
 	//--------------------------------------------------------------------
 #endif	
-	int len = (input.at(0)).length();
-	// truth false variable to end out while loop
-	bool found = false;
-	// create an iterator pointing to the first element of the dictionary
-	vecIter i = dictionary.begin();
-	// this while loop is not complete, a condition needs to be made
-	while(!found && i != dictionary.end()) {
-		// take a substring the dictionary word(the length is dependent on
-		// the input value) and compare
-		if( (*i).substr(0,len) == input.at(0) ) {
-			// so a word is found! push onto the queue
-			matchingCase.push(*i);
-		}
-		// move iterator to next element of data
-		++i; 	
+
+	//check to make sure list is sorted!
+	//--check, ok done
+
+	if(!search(dictionary, input, matchingCase)) {
+		std::cout << "no words have been found matching...." << std::endl;
+		return 1;
 	}
+
 	// print contents of queue	
 	while(!matchingCase.empty()) {
 		//make sure to display our queue in the order we found them
@@ -118,11 +117,6 @@ void readDictionary(std::ifstream& inFile, std::vector<std::string>& vec, char* 
 	}
 		
 }
-	//start a while loop, while the inFile is not at EOF
-		//push data onto vector (vec.push_back(..))
-	//end while loop
-	//make sure to cout any error that occur
-
 
 //same as read dictionary, but for our input file
 void readInput(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
@@ -134,5 +128,34 @@ void readInput(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
 		inFile >> line;
 		vec.push_back(line);
 	}
+	
+}
+//search function uses a binary search algorithm on a given vector. It is important
+//to note that the string MUST be sorted before being passed into binary search
+//or you are going to have a very bad time. Currently only finds one word but must
+//be developed to catch all similar words
+bool search(std::vector<std::string>& dict, std::vector<std::string>& in,
+	    std::queue<std::string>& out)
+{
+	int first=0, last= dict.size() -1;
+	while(first <= last)
+	{
+		int middle = (first+last)/2;
+
+		std::string sub = (dict.at(middle)).substr(0,in.at(0).length());
+		int comp = (in.at(0)).compare(sub);
+		//if comp returns 0(found word matching case)
+		if(comp == 0){
+			out.push(dict.at(middle));
+			return true;
+		}
+		//if not, take top half
+		else if (comp > 0)
+			first = middle + 1;
+		//else go with the lower half
+		else
+			last = middle - 1;
+	}
+	return false;
 }
 

@@ -3,7 +3,7 @@ project(autoComplete)
 
 #set version number
 set (MAJOR 0)
-set (MINOR 1)
+set (MINOR 2)
 #configure header file to be placed in binary
 configure_file(
 	"${PROJECT_SOURCE_DIR}/autoCompleteConfig.h.in"
