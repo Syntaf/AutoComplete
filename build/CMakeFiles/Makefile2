@@ -47,7 +47,7 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_SOURCE_DIR = /home/agk94/AutoComplete
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/agk94/AutoComplete/bin
+CMAKE_BINARY_DIR = /home/agk94/AutoComplete/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/auto.dir
@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /home/agk94/AutoComplete/bin
 CMakeFiles/auto.dir/all:
 	$(MAKE) -f CMakeFiles/auto.dir/build.make CMakeFiles/auto.dir/depend
 	$(MAKE) -f CMakeFiles/auto.dir/build.make CMakeFiles/auto.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/agk94/AutoComplete/bin/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/agk94/AutoComplete/build/CMakeFiles  1
 	@echo "Built target auto"
 .PHONY : CMakeFiles/auto.dir/all
 
@@ -66,9 +66,9 @@ all: CMakeFiles/auto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/auto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/agk94/AutoComplete/bin/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agk94/AutoComplete/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/auto.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/agk94/AutoComplete/bin/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agk94/AutoComplete/build/CMakeFiles 0
 .PHONY : CMakeFiles/auto.dir/rule
 
 # Convenience name for target.

@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/agk94/AutoComplete")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/agk94/AutoComplete/bin")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/agk94/AutoComplete/build")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)

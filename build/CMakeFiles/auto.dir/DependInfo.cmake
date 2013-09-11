@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/agk94/AutoComplete/auto.cpp" "/home/agk94/AutoComplete/bin/CMakeFiles/auto.dir/auto.cpp.o"
+  "/home/agk94/AutoComplete/auto.cpp" "/home/agk94/AutoComplete/build/CMakeFiles/auto.dir/auto.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "Clang")
 

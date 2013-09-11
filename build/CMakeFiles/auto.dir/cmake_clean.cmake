@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/auto.dir/auto.cpp.o"
-  "auto.pdb"
-  "auto"
+  "../bin/auto.pdb"
+  "../bin/auto"
 )
 
 # Per-language clean rules from dependency scanning.

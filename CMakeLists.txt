@@ -11,7 +11,7 @@ configure_file(
 )
 
 option (USE_INPUT
-	"use input files provided in argv" ON)
+	"use input files provided in argv" OFF)
 
 # add binary tree to search path for include files
 # so we can find config
