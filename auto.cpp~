@@ -12,7 +12,7 @@
 
 bool openGood(std::ifstream&, char* argv);
 void readDictionary(std::ifstream&, std::vector<std::string>&, char* argv);
-void readInput(std::ifstream&, std::vector<std::string>&, char* argv);
+void readInput(std::ifstream&, std::vector<std::string>&);
 
 typedef std::vector<std::string>::iterator vecIter;
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
 #ifdef USE_INPUT	
 	readDictionary(wordFile, dictionary, argv[1]);
-	readInput(inFile, input, argv[2]);
+	readInput(inFile, input);
 #else
 	//--------------------------------------------------------------------
 	input.push_back("par");
@@ -88,13 +88,13 @@ bool openGood(std::ifstream& file, char* argv)
 {
 	file.open(argv);
 	if (file.is_open()){
-	std::cout << "File was opened in openGood." << std::endl;
+	std::cout << "File was opened." << std::endl;
 	//if file can be opened
 	return true;
 	//return true
 
 	} if (!file.is_open()){
-	std::cout << "File could not be opened in openGood." << std::endl;
+	std::cout << "File could not be opened." << std::endl;
 	//file cannot be open
 	return false;
 	//return false
@@ -102,37 +102,30 @@ bool openGood(std::ifstream& file, char* argv)
 	std::cout << "Crash." << std::endl;
 	return false;
 }
-}
 // read data from file into vector, I feel a vector is much more
 // optimized for standard data types than say, a linked list. open
 // for debate though, a hash table might also be a viable data structure
-void readDictionary(std::ifstream& inFile, std::vector<std::string>& vec, char* argv)
+void readDictionary(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
 {
-	std::string line;
-
-	inFile >> line;
-	vec.push_back(line);
-	while(inFile) {
-		inFile >> line;
-		vec.push_back(line);
+	inFile(argv[1]);
+	if(!inFile){
+	std::cout << "File could not be opened" << std::endl;
+	return 1;
 	}
-		
-}
+	std::string line;
+	//for (std::string line; std::getline(inFile,line);)
+	while ((!inFile.eof()) && (std::getline(inFile,line)){
+	vec.push_back(line);
+	}
 	//start a while loop, while the inFile is not at EOF
 		//push data onto vector (vec.push_back(..))
 	//end while loop
 	//make sure to cout any error that occur
-
-
-//same as read dictionary, but for our input file
-void readInput(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
-{
-	std::string line;
-	inFile >> line;
-	vec.push_back(line);
-	while(inFile){
-		inFile >> line;
-		vec.push_back(line);
-	}
 }
 
+//same as read dictionary, but for our input file
+void readInput(std::ifstream& inFile, std::vector<std::string> &vec);
+{
+
+}
+}

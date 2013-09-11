@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/agk94/AutoComplete/auto.cpp
+iostream
+-
+limits
+-
+cstdlib
+-
+string
+-
+vector
+-
+fstream
+-
+autoCompleteConfig.h
+/home/agk94/AutoComplete/autoCompleteConfig.h
+queue
+-
+
+autoCompleteConfig.h
+
