@@ -50,6 +50,7 @@ int main(int argc, char* argv[])
 	readInput(inFile, input, argv[2]);
 #else
 	//--------------------------------------------------------------------
+	std::cout << "not ran" << std::endl;
 	input.push_back("par");
 	dictionary.push_back("apple");
 	dictionary.push_back("and");
@@ -87,13 +88,11 @@ bool openGood(std::ifstream& file, char* argv)
 {
 	file.open(argv);
 	if (file.is_open()){
-	std::cout << "File was opened in openGood." << std::endl;
 	//if file can be opened
 	return true;
 	//return true
 
 	} if (!file.is_open()){
-	std::cout << "File could not be opened in openGood." << std::endl;
 	//file cannot be open
 	return false;
 	//return false
@@ -137,6 +136,9 @@ void readInput(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
 bool search(std::vector<std::string>& dict, std::vector<std::string>& in,
 	    std::queue<std::string>& out)
 {
+	
+	//for each element in the input vector
+		//find all possible word matches and push onto the queue
 	int first=0, last= dict.size() -1;
 	while(first <= last)
 	{
