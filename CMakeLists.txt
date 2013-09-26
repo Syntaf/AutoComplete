@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.6)
 project(autoComplete)
 
 #set version number
-set (MAJOR 0)
-set (MINOR 2)
+set (MAJOR 1)
+set (MINOR 0)
 #configure header file to be placed in binary
 configure_file(
 	"${PROJECT_SOURCE_DIR}/autoCompleteConfig.h.in"

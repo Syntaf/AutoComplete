@@ -21,7 +21,9 @@ typedef std::vector<std::string>::iterator vecIter;
 
 int main(int argc, char* argv[])
 {
+	//word and input file, output file and data structures to hold information
 	std::ifstream wordFile, inFile;
+	std::ofstream out;
 	std::queue<std::string> matchingCase;
 	std::vector<std::string> dictionary, input;
 	// cmake build version(as specified in cmake header
@@ -49,10 +51,12 @@ int main(int argc, char* argv[])
 #ifdef USE_INPUT	
 	readDictionary(wordFile, dictionary, argv[1]);
 	readInput(inFile, input, argv[2]);
+//if no file is provided cmake var allows a test with manual dictionary inputs
 #else
 	//--------------------------------------------------------------------
 	std::cout << "not ran" << std::endl;
-	input.push_back("par");
+	input.push_back("par");i
+	input.push_back("apple");
 	dictionary.push_back("apple");
 	dictionary.push_back("and");
 	dictionary.push_back("batman");
@@ -65,8 +69,9 @@ int main(int argc, char* argv[])
 	//--------------------------------------------------------------------
 #endif	
 
-	//check to make sure list is sorted!
+	//condition: word file MUST be sorted
 	//--check, ok done
+	out.open("out.dat");
 	for(int i = 0; i < input.size(); i++) {
 		if(!search(dictionary, input.at(i), matchingCase)) {
 			std::cout << "no words have been found matching...." << std::endl;
@@ -74,20 +79,30 @@ int main(int argc, char* argv[])
 		}
 	
 		std::cout << std::endl << std::endl;
+		std::cout << "AUTOCOMPLETE RESULTS FOR: " << input.at(i) << std::endl
+			  << "--------------------------------------------------------\n";
+		out << std::endl << std::endl;
+		out << "AUTOCOMPLETE RESULTS FOR: " << input.at(i) << std::endl
+		    <<"--------------------------------------------------------\n";
 		// print contents of queue, counter for format
 		int counter = 0;	
 		while(!matchingCase.empty()) {
 			//make sure to display our queue in the order we found them
 			std::cout << std::setw(15) << matchingCase.front();
+			out << std::setw(15) << matchingCase.front();
 			//pop off the front of the queue
 			matchingCase.pop();
 			counter++;
-			if(counter % 5 == 0)
+			//format counter for displaying, 5 per line
+			if(counter % 5 == 0) {
 				std::cout << std::endl;
+				out << std::endl;
+			}
 
 		}
+		
 	}
-
+	out.close();
 	return 0;
 }
 
