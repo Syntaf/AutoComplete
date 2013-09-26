@@ -1,13 +1,7 @@
 AutoComplete
 ============
 
-Code competition description:
-The code challenge problem is as follows: You must build an autocomplete program in 
-one of these languages: Java, C++, Ruby, Python, or PHP. The metric for winning the 
-competition is going to be based on time to complete, so optimization is important. 
-This means that if your program executes our input set faster than anyone else you 
-win. Just to forewarn you though, our input set is going to be exceedingly large.
-
+STABLE VERSION OF AUTOCOMPLETE PROGRAM. Read master branch for more details
 
 COMPILING
 
