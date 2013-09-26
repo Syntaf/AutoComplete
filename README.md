@@ -1,13 +1,10 @@
 AutoComplete
 ============
+Program designed to give all possible word options to a set of characters given to the program
+via files.
 
-Code competition description:
-The code challenge problem is as follows: You must build an autocomplete program in 
-one of these languages: Java, C++, Ruby, Python, or PHP. The metric for winning the 
-competition is going to be based on time to complete, so optimization is important. 
-This means that if your program executes our input set faster than anyone else you 
-win. Just to forewarn you though, our input set is going to be exceedingly large.
-
+NOTE: a Dictionary file has been provided along with sampleInput, to call these using the program 
+     full file name would be ../words.dat or ../sampleInput.dat
 
 COMPILING
 
