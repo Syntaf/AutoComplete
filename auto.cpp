@@ -46,43 +46,32 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-#ifdef USE_INPUT	
 	readDictionary(wordFile, dictionary,argv[1]);
 	readInput(inFile, input,argv[2]);
-#else
-	//--------------------------------------------------------------------
-	std::cout << "USE_INPUT SET TO OFF....GENERATING DICTIONARY\n\n";
-	input.push_back("par");
-	dictionary.push_back("testing");
-	dictionary.push_back("gone");
-	dictionary.push_back("parachute");
-	dictionary.push_back("imaginary");
-	dictionary.push_back("paraglide");
-	//--------------------------------------------------------------------
-#endif	
+	
 	for(int k = 0; k < input.size(); ++k) {
-	int len = (input.at(k)).length();
-	// truth false variable to end out while loop
-	bool found = false;
-	// create an iterator pointing to the first element of the dictionary
-	vecIter i = dictionary.begin();
-	// this while loop is not complete, a condition needs to be made
-	while(!found && i != dictionary.end()) {
-		// take a substring the dictionary word(the length is dependent on
-		// the input value) and compare
-		if( (*i).substr(0,len) == input.at(k) ) {
-			// so a word is found! push onto the queue
-			matchingCase.push(*i);
+		int len = (input.at(k)).length();
+		// truth false variable to end out while loop
+		bool found = false;
+		// create an iterator pointing to the first element of the dictionary
+		vecIter i = dictionary.begin();
+		// this while loop is not complete, a condition needs to be made
+		while(!found && i != dictionary.end()) {
+			// take a substring the dictionary word(the length is dependent on
+			// the input value) and compare
+			if( (*i).substr(0,len) == input.at(k) ) {
+				// so a word is found! push onto the queue
+				matchingCase.push(*i);
+			}
+			// move iterator to next element of data
+			++i; 	
 		}
-		// move iterator to next element of data
-		++i; 	
-	}
-
+	
 	}
 	int counter = 0;
 	// print contents of queue	
 	while(!matchingCase.empty()) {
-		//make sure to display our queue in the order we found them
+			//make sure to display our queue in the order we found them
 		std::cout << std::setw(15) << matchingCase.front();
 		//pop off the front of the queue
 		matchingCase.pop();
