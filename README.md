@@ -30,5 +30,3 @@ COMPILING
 			user@ubuntu:~/AutoComplete/build$ make
 			user@ubuntu:~/AutoComplete/build$ cd .. && cd bin
 			user@ubuntu:~/AutoComplete/bin$ ./auto test.dat test2.dat
-	WINDOWS SYSTEMS
-		[]Fuck windows
