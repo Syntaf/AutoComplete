@@ -48,26 +48,8 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-#ifdef USE_INPUT	
 	readDictionary(wordFile, dictionary, argv[1]);
 	readInput(inFile, input, argv[2]);
-//if no file is provided cmake var allows a test with manual dictionary inputs
-#else
-	//--------------------------------------------------------------------
-	std::cout << "not ran" << std::endl;
-	input.push_back("par");i
-	input.push_back("apple");
-	dictionary.push_back("apple");
-	dictionary.push_back("and");
-	dictionary.push_back("batman");
-	dictionary.push_back("gone");
-	dictionary.push_back("imaginary");
-	dictionary.push_back("parachute");
-	dictionary.push_back("paraglide");
-	dictionary.push_back("testing");
-	dictionary.push_back("zoo");
-	//--------------------------------------------------------------------
-#endif	
 
 	//condition: word file MUST be sorted
 	//--check, ok done
@@ -78,12 +60,10 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 	
-		std::cout << std::endl << std::endl;
-		std::cout << "AUTOCOMPLETE RESULTS FOR: " << input.at(i) << std::endl
-			  << "--------------------------------------------------------\n";
-		out << std::endl << std::endl;
-		out << "AUTOCOMPLETE RESULTS FOR: " << input.at(i) << std::endl
-		    <<"--------------------------------------------------------\n";
+
+		
+	}
+
 		// print contents of queue, counter for format
 		int counter = 0;	
 		while(!matchingCase.empty()) {
@@ -100,8 +80,7 @@ int main(int argc, char* argv[])
 			}
 
 		}
-		
-	}
+	std::cout << std::endl;
 	out.close();
 	return 0;
 }

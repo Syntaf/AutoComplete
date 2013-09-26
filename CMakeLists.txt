@@ -10,9 +10,6 @@ configure_file(
 	"${PROJECT_BINARY_DIR}/autoCompleteConfig.h"
 )
 
-option (USE_INPUT
-	"use input files provided in argv" ON)
-
 # add binary tree to search path for include files
 # so we can find config
 include_directories("${PROJECT_BINARY_DIR}")
