@@ -1,8 +1,0 @@
-current to-do list:
-
-[] 3 File related functions to write 				--Alec
-[] Test and optimize input 					--Alec
-[] Devise efficient search algorithm for large data		--Grant
-[] Decide if a queue should be used for out final matchingCases --Grant
-[] Should a vector be used to search? maybe ternary tree	--Grant
-[] fix up ugly code and clean comments eventually		--Grant
