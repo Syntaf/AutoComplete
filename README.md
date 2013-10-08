@@ -3,9 +3,6 @@ AutoComplete
 Program designed to give all possible word options to a set of characters given to the program
 via files.
 
-NOTE: a Dictionary file has been provided along with sampleInput, to call these using the program 
-     full file name would be ../words.dat or ../sampleInput.dat
-
 COMPILING
 
 
