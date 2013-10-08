@@ -14,8 +14,7 @@
 bool openGood(std::ifstream&, char* argv);
 void readDictionary(std::ifstream&, std::vector<std::string>&, char* argv);
 void readInput(std::ifstream&, std::vector<std::string>&, char* argv);
-bool search(std::vector<std::string>&, std::string,
-	    std::queue<std::string>&);
+int search(std::vector<std::string>&, std::string);
 
 typedef std::vector<std::string>::iterator vecIter;
 
@@ -54,32 +53,36 @@ int main(int argc, char* argv[])
 	//condition: word file MUST be sorted
 	//--check, ok done
 	out.open("out.dat");
-	for(int i = 0; i < input.size(); i++) {
-		if(!search(dictionary, input.at(i), matchingCase)) {
-			std::cout << "no words have been found matching...." << std::endl;
-			return 1;
-		}
-	
-
-		
+	//for each element in our "find word" vector
+	for(int i = 0; i < input.size()-1; i++){
+		std::vector<std::string>::const_iterator pos = std::lower_bound(
+			dictionary.begin(),
+			dictionary.end(),
+			input.at(i));
+		for( ; pos != dictionary.end(); ++pos) {
+			if(pos->compare(0,(input.at(i)).size(),input.at(i)) == 0)
+			{
+				matchingCase.push(*pos);
+			}
+			else break;
+		}	
 	}
 
-		// print contents of queue, counter for format
-		int counter = 0;	
-		while(!matchingCase.empty()) {
-			//make sure to display our queue in the order we found them
-			std::cout << std::setw(15) << matchingCase.front();
-			out << std::setw(15) << matchingCase.front();
-			//pop off the front of the queue
-			matchingCase.pop();
-			counter++;
-			//format counter for displaying, 5 per line
-			if(counter % 5 == 0) {
-				std::cout << std::endl;
-				out << std::endl;
-			}
-
+	// print contents of queue, counter for format
+	int counter = 0;	
+	while(!matchingCase.empty()) {
+		//make sure to display our queue in the order we found them
+		std::cout << std::setw(15) << matchingCase.front();
+		out << std::setw(15) << matchingCase.front();
+		//pop off the front of the queue
+		matchingCase.pop();
+		counter++;
+		//format counter for displaying, 5 per line
+		if(counter % 5 == 0) {
+			std::cout << std::endl;
+			out << std::endl;
 		}
+	}
 	std::cout << std::endl;
 	out.close();
 	return 0;
@@ -89,19 +92,13 @@ int main(int argc, char* argv[])
 bool openGood(std::ifstream& file, char* argv)
 {
 	file.open(argv);
-	if (file.is_open()){
-	//if file can be opened
-	return true;
-	//return true
-
-	} if (!file.is_open()){
-	//file cannot be open
-	return false;
-	//return false
-	}else{
-	std::cout << "Crash." << std::endl;
-	return false;
+	if (!file.is_open()){
+		//file cannot be opened, error out
+		std::cerr << "FILE ERROR...CANNOT BE OPENED" << std::endl;
+		return false;
 	}
+	//file cannot be open
+	return true;
 }
 // read data from file into vector, I feel a vector is much more
 // optimized for standard data types than say, a linked list. open
@@ -131,31 +128,25 @@ void readInput(std::ifstream& inFile, std::vector<std::string> &vec, char* argv)
 	}
 	
 }
+
+/* OUTDATED BY STD::LOWER_BOUND
 //search function uses a binary search algorithm on a given vector. It is important
 //to note that the string MUST be sorted before being passed into binary search
-//or you are going to have a very bad time. Currently only finds one word but must
-//be developed to catch all similar words
-bool search(std::vector<std::string>& dict, std::string in,
-	    std::queue<std::string>& out)
-{
-	//tick makes sure the loop found at least one thing. if not then break the function
-	bool tick = false;	
-	bool running = true;
-	while(running) {
+//or you are going to have a very bad time. Currently finds index for first match
+//and return int for main loop to start search from that point
+int search(std::vector<std::string>& dict, std::string in)
+{	
 		//for each element in the input vector
 		//find all possible word matches and push onto the queue
 		int first=0, last= dict.size() -1;
 		while(first <= last)
 		{
-			tick = false;
 			int middle = (first+last)/2;
 			std::string sub = (dict.at(middle)).substr(0,in.length());
 			int comp = in.compare(sub);
 			//if comp returns 0(found word matching case)
 			if(comp == 0) {
-				tick = true;
-				out.push(dict.at(middle));
-				dict.erase(dict.begin() + middle);		
+				return middle;		
 			}
 			//if not, take top half
 			else if (comp > 0)
@@ -164,9 +155,7 @@ bool search(std::vector<std::string>& dict, std::string in,
 			else
 				last = middle - 1;
 		}
-		if(tick==false)
-			running = false;
-	}
-	return true;
+	//word not found... return failure
+	return -1;
 }
-
+*/

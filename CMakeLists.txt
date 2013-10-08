@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 project(autoComplete)
 
 #set version number
-set (MAJOR 1)
+set (MAJOR 2)
 set (MINOR 0)
 #configure header file to be placed in binary
 configure_file(
